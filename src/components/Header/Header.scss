@@ -1,0 +1,18 @@
+@import '../../scss/index.scss';
+
+.header {
+  background-color: $background-ligth;
+  border-bottom: 1px solid $border-grey;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+
+  &__logo {
+    align-items: center;
+    display: flex !important;
+
+    img {
+      height: 25px;
+    }
+  }
+}
