@@ -1,0 +1,31 @@
+@import '../../../scss/index.scss';
+
+.input-search {
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+
+  &.ui.fluid.search {
+    padding: 0 80px;
+  }
+
+  .ui.input > input {
+    border: 0;
+    border-radius: 8px;
+    font-size: 1.2rem;
+  }
+
+  .ui.input > input {
+    background-color: #efefef;
+    padding: 8px;
+
+    &:focus {
+      background-color: #efefef;
+    }
+  }
+
+  .results {
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
+}

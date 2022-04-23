@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { toast } from 'react-toastify'
 
 import AuthContext from './authContext'
-import { setToken } from '../utils/token'
+import { removeToken, setToken } from '../utils/token'
 import { LOGIN_USER, REGISTER_USER } from '../gql/user'
 
 const AuthState = ({ children }) => {
@@ -56,7 +56,8 @@ const AuthState = ({ children }) => {
   }
 
   const logoutUser = () => {
-    setUser(null)
+    removeToken()
+    setAuth(null)
   }
 
   const authData = useMemo(

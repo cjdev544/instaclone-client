@@ -1,0 +1,36 @@
+@import '../../../../scss/index.scss';
+
+.no-found {
+  font-size: 17px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.follow-list {
+  &__user {
+    align-items: center;
+    display: flex;
+    margin: 10px 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      margin-right: 15px !important;
+    }
+
+    p {
+      font-size: 13px;
+      margin: 0;
+
+      &:first-of-type {
+        color: $font-dark;
+        font-weight: bold;
+      }
+      &:last-of-type {
+        color: $font-grey;
+      }
+    }
+  }
+}

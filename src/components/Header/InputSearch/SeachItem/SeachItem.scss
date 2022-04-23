@@ -1,0 +1,25 @@
+@import '../../../../scss/index.scss';
+
+.search-item {
+  align-items: center;
+  display: flex;
+
+  .ui.image {
+    border-radius: 50% !important;
+    height: 35px !important;
+    margin-right: 20px;
+    width: 35px !important;
+  }
+
+  p {
+    margin: 0;
+    color: $font-dark;
+
+    &:first-of-type {
+      font-weight: bold;
+    }
+    &:last-of-type {
+      color: $font-grey;
+    }
+  }
+}
