@@ -24,7 +24,7 @@ export const LOGIN_USER = gql`
 `
 
 export const GET_USER = gql`
-  query Query($username: String!) {
+  query GetUser($username: String!) {
     getUser(username: $username) {
       id
       name
@@ -72,7 +72,7 @@ export const UPDATE_PASSWORD = gql`
 `
 
 export const SEARCH_USERS = gql`
-  query Query($search: String!) {
+  query Search($search: String!) {
     search(search: $search) {
       id
       name

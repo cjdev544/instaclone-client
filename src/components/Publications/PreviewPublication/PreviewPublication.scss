@@ -1,0 +1,46 @@
+@import '../../../scss/index.scss';
+
+.preview-publication {
+  height: 100%;
+
+  &:hover {
+    cursor: pointer;
+    img {
+      filter: brightness(70%);
+    }
+  }
+
+  &__background {
+    align-items: center;
+    color: transparent;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &-icon {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      color: $font-ligth;
+    }
+  }
+
+  i.icon {
+    font-size: 19px;
+    height: 100%;
+    margin-right: 0.5rem;
+  }
+
+  &__image {
+    height: 290px !important;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+  }
+}

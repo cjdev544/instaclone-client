@@ -22,3 +22,11 @@ code {
     width: 100%;
   }
 }
+
+// Emoji
+.emoji-picker {
+  position: absolute;
+  z-index: 1000;
+  top: 30%;
+  left: 30%;
+}

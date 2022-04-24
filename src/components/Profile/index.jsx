@@ -9,10 +9,10 @@ import AvatarForm from '../forms/AvatarForm'
 import SettingsForm from '../forms/SettingsForm'
 import ImageNoFound from '../../assets/png/avatar.png'
 import HeaderProfile from './HeaderProfile'
-import './Profile.scss'
 import Followers from './Followers'
+import './Profile.scss'
 
-const Profile = ({ username }) => {
+const Profile = ({ username, publications }) => {
   const { getDataUser } = useGetData()
   const { dataUser, loadingUser, errorUser } = getDataUser(username)
 
@@ -62,7 +62,7 @@ const Profile = ({ username }) => {
             userAuth={auth?.username}
             typeModal={typeModal}
           />
-          <Followers username={username} />
+          <Followers username={username} publications={publications} />
           <div className='others'>
             <p className='name'>{dataUser.name}</p>
             {dataUser.website && (

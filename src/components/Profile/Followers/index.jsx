@@ -5,7 +5,7 @@ import BasicModal from '../../modals/BasicModal'
 import './Followers.scss'
 import FollowListUsers from './FollowListUsers'
 
-const Followers = ({ username }) => {
+const Followers = ({ username, publications }) => {
   const { getAllFollowers, getAllFolloweds, resultFollowers, resultFolloweds } =
     useFollow()
 
@@ -60,7 +60,7 @@ const Followers = ({ username }) => {
     <>
       <div className='followers'>
         <p>
-          <span>50</span> publicaciones
+          <span>{publications}</span> publicaciones
         </p>
         <p className='link' onClick={() => handleModalList('followers')}>
           <span>{dataFollowers?.getFollowers?.length}</span> seguidores

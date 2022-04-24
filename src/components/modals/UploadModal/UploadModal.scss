@@ -1,0 +1,137 @@
+@import '../../../scss/index.scss';
+
+.upload-modal {
+  border-radius: 15px !important;
+  height: 70%;
+  max-width: 600px;
+  overflow: hidden;
+  padding: 8px;
+
+  .dropzone {
+    align-items: center;
+    border-radius: 15px !important;
+    border: 2px dashed $border-dark;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    i {
+      color: $font-grey;
+      font-size: 50px;
+    }
+    p {
+      margin-top: 20px;
+    }
+  }
+
+  .previw-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .btn-upload {
+    border-radius: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .option-feet {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+
+    .previw-image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
+
+    .input-right {
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 50%;
+
+      &__relative {
+        height: 100%;
+        position: relative;
+        width: 100%;
+      }
+
+      .user {
+        align-items: center;
+        display: flex;
+        margin-left: 20px;
+        margin-top: 20px;
+        position: absolute;
+        z-index: 1;
+
+        p {
+          font-size: 16px;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+      }
+
+      textarea {
+        border-color: $border-grey;
+        border-top: 0;
+        height: 70%;
+        padding-left: 20px;
+        padding-top: 70px;
+        position: absolute;
+        resize: none;
+        top: 0;
+        width: 100%;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      i {
+        bottom: 145px;
+        color: $font-grey;
+        cursor: pointer;
+        font-size: 20px;
+        left: 20px;
+        position: absolute;
+      }
+
+      .value-counter {
+        position: absolute;
+        color: $font-grey;
+        bottom: 145px;
+        right: 10px;
+      }
+    }
+  }
+
+  .publishing {
+    p {
+      margin-top: 80px;
+      font-size: 18px;
+    }
+  }
+}
