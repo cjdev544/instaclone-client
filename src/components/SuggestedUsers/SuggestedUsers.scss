@@ -1,0 +1,61 @@
+@import '../../scss/index.scss';
+
+.suggested-users {
+  margin-top: 6rem;
+  position: fixed;
+  width: 250px;
+
+  p {
+    color: $font-grey;
+    font-weight: bold;
+  }
+
+  &__auth {
+    align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .ui.avatar.image {
+      height: 4rem;
+      margin-right: 1rem;
+      width: 4rem;
+    }
+
+    &-info {
+      display: flex;
+
+      a {
+        color: $font-dark;
+        font-weight: bold;
+
+        &:hover {
+          color: $font-dark;
+        }
+      }
+
+      &-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    p {
+      color: $font-grey;
+      font-weight: normal;
+    }
+
+    .ui.button {
+      background-color: transparent;
+      color: $action;
+      margin-right: 0;
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+        color: $action;
+      }
+    }
+  }
+}

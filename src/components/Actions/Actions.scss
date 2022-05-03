@@ -1,0 +1,27 @@
+@import '../../scss/index.scss';
+
+.actions {
+  border-top: 1px solid $border-grey;
+  padding-left: 14px;
+  padding-top: 1rem;
+
+  i.icon {
+    font-size: 24px;
+    height: 100%;
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+
+    &.active {
+      color: $danger;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $font-grey;
+    }
+  }
+
+  p {
+    font-weight: bold;
+  }
+}

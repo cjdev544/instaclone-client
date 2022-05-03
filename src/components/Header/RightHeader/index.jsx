@@ -24,7 +24,8 @@ const RightHeader = () => {
         <Link to='/'>
           <Icon name='home' />
         </Link>
-        <Icon name='plus' onClick={() => setShowModal(true)} />
+        <Link to='/'>{/* <Icon name='paper plane outline' /> */}</Link>
+        <Icon name='plus square outline' onClick={() => setShowModal(true)} />
         <Link to={`/${auth.username}`}>
           <Image
             src={dataUser?.avatar ? dataUser.avatar : ImageNoFound}

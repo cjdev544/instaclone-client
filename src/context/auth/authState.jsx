@@ -4,8 +4,8 @@ import jwt_decode from 'jwt-decode'
 import { toast } from 'react-toastify'
 
 import AuthContext from './authContext'
-import { removeToken, setToken } from '../utils/token'
-import { LOGIN_USER, REGISTER_USER } from '../gql/user'
+import { removeToken, setToken } from '../../utils/token'
+import { LOGIN_USER, REGISTER_USER } from '../../gql/user'
 
 const AuthState = ({ children }) => {
   const [createUser] = useMutation(REGISTER_USER)

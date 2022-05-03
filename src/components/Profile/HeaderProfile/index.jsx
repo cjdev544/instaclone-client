@@ -19,7 +19,7 @@ const HeaderProfile = ({ userPage, userAuth, typeModal }) => {
   }, [dataFollow])
 
   const handleFollow = () => {
-    followUser(userPage.username)
+    followUser(userPage, userAuth)
       .then((data) => {
         if (data.follow) {
           setIsFollow(true)
@@ -27,11 +27,11 @@ const HeaderProfile = ({ userPage, userAuth, typeModal }) => {
           toast.error('Error de comunicación')
         }
       })
-      .catch(() => toast.error('Error de comunicación'))
+      .catch((err) => console.log(err))
   }
 
   const handleUnFollow = () => {
-    unFollowUser(userPage.username)
+    unFollowUser(userPage, userAuth)
       .then((data) => {
         if (data.unFollow) {
           setIsFollow(false)
@@ -39,7 +39,7 @@ const HeaderProfile = ({ userPage, userAuth, typeModal }) => {
           toast.error('Error de comunicación')
         }
       })
-      .catch(() => toast.error('Error de comunicación'))
+      .catch((err) => console.log(err))
   }
 
   if (loadingFollow || errorFollow) return null
@@ -47,7 +47,8 @@ const HeaderProfile = ({ userPage, userAuth, typeModal }) => {
   return (
     <div className='header-profile'>
       <h2>{userPage.username}</h2>
-      {userAuth === userPage.username ? (
+
+      {userAuth.username === userPage.username ? (
         <Button className='edit' onClick={() => typeModal('settings')}>
           Editar perfil
         </Button>

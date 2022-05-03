@@ -1,0 +1,56 @@
+@import '../../../scss/index.scss';
+
+.coment-form {
+  align-items: center;
+  bottom: 0;
+  border-top: 1px solid $border-grey !important;
+  display: flex;
+  left: 0;
+  position: absolute !important;
+  width: 100%;
+
+  i.icon {
+    cursor: pointer;
+    font-size: 24px;
+    padding-left: 12px;
+    padding-right: 24px;
+  }
+
+  .ui.form .field.error input[type='text'] {
+    background-color: transparent;
+  }
+
+  .field {
+    width: 250px;
+    margin: 0 !important;
+
+    .ui.input {
+      height: 50px;
+
+      input {
+        background-color: transparent;
+        border-radius: 0;
+        border: 0;
+        padding-right: 80px;
+
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .ui.button {
+    background-color: transparent !important;
+    bottom: 0;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    position: absolute;
+    right: 10px;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

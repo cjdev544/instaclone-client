@@ -1,0 +1,67 @@
+@import '../../../scss/index.scss';
+
+.publication-home-box {
+  background-color: $background-ligth !important;
+  margin-bottom: 30px !important;
+  margin-top: 20px;
+
+  &__header {
+    align-items: center;
+    border: 1px solid $border-grey;
+    display: flex;
+    height: 60px;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &-user {
+      .ui.image.avatar {
+        margin-left: 1rem;
+        min-height: 100%;
+      }
+
+      .ui.avatar.image {
+        height: 42px;
+        width: 42px;
+      }
+    }
+
+    p {
+      color: $font-dark;
+      font-weight: bold;
+      margin: 0 0.6rem;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__image {
+    background-color: #000 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__actions {
+    border-left: 1px solid $border-grey;
+    border-right: 1px solid $border-grey;
+
+    .actions {
+      border-top: none;
+      height: auto !important;
+
+      p {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  &__form {
+    > form {
+      position: relative !important;
+      border: 1px solid $border-grey;
+      border-top: 1px solid $border-grey !important;
+    }
+  }
+}

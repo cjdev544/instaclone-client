@@ -29,14 +29,17 @@ const User = () => {
     }
   }, [dataPublications])
 
-  if (loadingPublications || errorPublicatios) return null
-
   return (
     <BasicLayout>
-      <div>
-        <Profile username={username} publications={sortPublications?.length} />
-        <Publications publications={sortPublications} />
-      </div>
+      {!loadingPublications && !errorPublicatios && (
+        <div>
+          <Profile
+            username={username}
+            publications={sortPublications?.length}
+          />
+          <Publications publications={sortPublications} />
+        </div>
+      )}
     </BasicLayout>
   )
 }

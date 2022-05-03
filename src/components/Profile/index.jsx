@@ -59,10 +59,14 @@ const Profile = ({ username, publications }) => {
         <Grid.Column width={11} className='profile__right'>
           <HeaderProfile
             userPage={dataUser}
-            userAuth={auth?.username}
+            userAuth={auth}
             typeModal={typeModal}
           />
-          <Followers username={username} publications={publications} />
+          <Followers
+            userAuth={auth?.username}
+            username={username}
+            publications={publications}
+          />
           <div className='others'>
             <p className='name'>{dataUser.name}</p>
             {dataUser.website && (

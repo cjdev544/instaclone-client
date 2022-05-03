@@ -1,0 +1,13 @@
+@import '../../../../scss/index.scss';
+
+.coments-publication {
+  height: calc(100% - (200px));
+  overflow-y: scroll;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  word-wrap: break-word;
+
+  .user-info__image .ui.image.avatar {
+    margin: 0;
+  }
+}

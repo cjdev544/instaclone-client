@@ -1,0 +1,36 @@
+@import '../../../scss/index.scss';
+
+.publication-modal {
+  background-color: $background-grey-ligth !important;
+  border-radius: 5px !important;
+  height: 600px;
+  max-width: 720px;
+
+  .ui.grid {
+    margin: 0;
+
+    & > .column:not(.row) {
+      padding: 0;
+    }
+  }
+
+  &__left {
+    background-color: #000;
+    display: flex !important;
+    height: 600px;
+    justify-content: center;
+    padding: 0;
+
+    img {
+      max-height: 100%;
+      min-height: 80vh;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  &__right {
+    border-left: 1px solid $border-grey;
+    height: 600px;
+  }
+}

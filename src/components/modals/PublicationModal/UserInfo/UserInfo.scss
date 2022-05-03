@@ -1,0 +1,32 @@
+@import '../../../../scss/index.scss';
+
+.user-info {
+  align-items: center;
+  border-bottom: 1px solid $border-grey;
+  display: flex;
+  height: 100%;
+  height: 50px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  &__image {
+    height: 42px i !important;
+
+    .ui.image.avatar {
+      min-height: 100%;
+      margin-left: 1rem;
+    }
+
+    .ui.avatar.image {
+      width: 42px;
+      height: 42px;
+      padding: 2px;
+      border: 2px solid #e34461;
+    }
+  }
+
+  p {
+    font-weight: bold;
+    margin: 0 0.6rem;
+  }
+}

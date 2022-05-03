@@ -1,0 +1,52 @@
+@import '../../../scss/index.scss';
+
+.suggested-user {
+  margin-top: 1.5rem;
+
+  &__auth {
+    align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+
+    .ui.avatar.image {
+      height: 2rem;
+      margin-right: 1rem;
+      width: 2rem;
+    }
+
+    &-info {
+      display: flex;
+
+      a {
+        color: $font-dark;
+        font-weight: bold;
+
+        &:hover {
+          color: $font-dark;
+        }
+      }
+
+      p {
+        color: $font-grey;
+      }
+
+      &-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .ui.button {
+      background-color: transparent;
+      color: $action;
+      margin-right: 0;
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+        color: $action;
+      }
+    }
+  }
+}

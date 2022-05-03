@@ -3,12 +3,12 @@ import { Container, Grid, Image } from 'semantic-ui-react'
 
 import Logo from '../../assets/png/logo.png'
 import RightHeader from './RightHeader'
-import './Header.scss'
 import InputSearch from './InputSearch'
+import './Header.scss'
 
 const Header = () => {
   return (
-    <header className='header'>
+    <header className='headerApp'>
       <Container>
         <Grid>
           <Grid.Column width={3} className='header__logo'>

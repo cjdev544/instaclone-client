@@ -24,8 +24,8 @@ export const LOGIN_USER = gql`
 `
 
 export const GET_USER = gql`
-  query GetUser($username: String!) {
-    getUser(username: $username) {
+  query GetUser($username: String, $getUserId: ID) {
+    getUser(username: $username, id: $getUserId) {
       id
       name
       username
@@ -61,6 +61,7 @@ export const UPDATE_USER = gql`
       email
       website
       description
+      avatar
     }
   }
 `

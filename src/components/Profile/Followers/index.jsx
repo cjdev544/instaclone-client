@@ -1,29 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import useFollow from '../../../hooks/useFollow'
 import BasicModal from '../../modals/BasicModal'
-import './Followers.scss'
 import FollowListUsers from './FollowListUsers'
+import './Followers.scss'
 
-const Followers = ({ username, publications }) => {
-  const { getAllFollowers, getAllFolloweds, resultFollowers, resultFolloweds } =
-    useFollow()
+const Followers = ({ userAuth, username, publications }) => {
+  const { getFolloweds, getFollowers, getNoFolloweds } = useFollow()
 
-  useEffect(() => {
-    getAllFollowers(username)
-    getAllFolloweds(username)
-  }, [username])
+  const dataFolloweds = getFolloweds(username, userAuth)
+  const followeds = dataFolloweds?.getFolloweds
 
-  const {
-    data: dataFollowers,
-    loading: loadingFollowers,
-    error: errorFollowers,
-  } = resultFollowers
-  const {
-    data: dataFolloweds,
-    loading: loadingFolloweds,
-    error: errorFolloweds,
-  } = resultFolloweds
+  const dataFollowers = getFollowers(username)
+  const followers = dataFollowers?.getFollowers
+
+  getNoFolloweds()
 
   const [titleModal, setTitleModal] = useState('')
   const [showModal, setShowModal] = useState(false)
@@ -34,10 +25,7 @@ const Followers = ({ username, publications }) => {
       setTitleModal('Seguidores')
       setShowModal(true)
       setChildrenModal(
-        <FollowListUsers
-          list={dataFollowers?.getFollowers}
-          setShowModal={setShowModal}
-        />
+        <FollowListUsers list={followers} setShowModal={setShowModal} />
       )
     }
 
@@ -45,16 +33,12 @@ const Followers = ({ username, publications }) => {
       setTitleModal('Seguidos')
       setShowModal(true)
       setChildrenModal(
-        <FollowListUsers
-          list={dataFolloweds?.getFolloweds}
-          setShowModal={setShowModal}
-        />
+        <FollowListUsers list={followeds} setShowModal={setShowModal} />
       )
     }
   }
 
-  if (loadingFollowers || loadingFolloweds || errorFollowers || errorFolloweds)
-    return null
+  if (!followers || !followeds) return null
 
   return (
     <>
@@ -63,10 +47,10 @@ const Followers = ({ username, publications }) => {
           <span>{publications}</span> publicaciones
         </p>
         <p className='link' onClick={() => handleModalList('followers')}>
-          <span>{dataFollowers?.getFollowers?.length}</span> seguidores
+          <span>{followers?.length}</span> seguidores
         </p>
         <p className='link' onClick={() => handleModalList('followeds')}>
-          <span>{dataFolloweds?.getFolloweds?.length}</span> seguidos
+          <span>{followeds?.length}</span> seguidos
         </p>
       </div>
       <BasicModal

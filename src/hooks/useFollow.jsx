@@ -1,65 +1,40 @@
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
-import {
-  FOLLOW,
-  FOLLOW_NO_FOLLOW,
-  GET_FOLLOWEDS,
-  GET_FOLLOWERS,
-  UN_FOLLOW,
-} from '../gql/follow'
+import { useContext } from 'react'
+
+import FollowContext from '../context/follow/followContext'
 
 const useFollow = () => {
-  const [follow] = useMutation(FOLLOW)
-  const [unFollow] = useMutation(UN_FOLLOW)
+  const stateFollow = useContext(FollowContext)
 
-  const [startSearchFollowers, resultFollowers] = useLazyQuery(GET_FOLLOWERS)
-  const [startSearchFolloweds, resultFolloweds] = useLazyQuery(GET_FOLLOWEDS)
+  const {
+    followNoFollowState,
+    followUserState,
+    unFollowUserState,
+    getFollowedsState,
+    getNoFollowedsState,
+    getFollowersState,
+  } = stateFollow
 
-  const followNoFollow = (username) => {
-    const { data, loading, error } = useQuery(FOLLOW_NO_FOLLOW, {
-      variables: { username },
-    })
-    const queryFollow = {
-      dataFollow: data?.followNoFollow,
-      loadingFollow: loading,
-      errorFollow: error,
-    }
-    return queryFollow
-  }
+  const followNoFollow = (username) => followNoFollowState(username)
 
-  const followUser = async (username) => {
-    const { data } = await follow({
-      variables: { username },
-    })
-    return data
-  }
+  const followUser = (userPage, userAuth) => followUserState(userPage, userAuth)
 
-  const unFollowUser = async (username) => {
-    const { data } = await unFollow({
-      variables: { username },
-    })
-    return data
-  }
+  const unFollowUser = (userPage, userAuth) =>
+    unFollowUserState(userPage, userAuth)
 
-  const getAllFollowers = (username) => {
-    startSearchFollowers({
-      variables: { username },
-    })
-  }
+  const getFolloweds = (username, userAuth) =>
+    getFollowedsState(username, userAuth)
 
-  const getAllFolloweds = (username) => {
-    startSearchFolloweds({
-      variables: { username },
-    })
-  }
+  const getNoFolloweds = () => getNoFollowedsState()
+
+  const getFollowers = (username) => getFollowersState(username)
 
   return {
-    resultFollowers,
-    resultFolloweds,
     followNoFollow,
     followUser,
     unFollowUser,
-    getAllFollowers,
-    getAllFolloweds,
+    getFolloweds,
+    getNoFolloweds,
+    getFollowers,
   }
 }
 

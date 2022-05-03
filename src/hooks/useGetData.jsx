@@ -1,5 +1,10 @@
-import { gql, useMutation, useQuery, useLazyQuery } from '@apollo/client'
-import { useApolloClient } from '@apollo/client'
+import {
+  gql,
+  useApolloClient,
+  useMutation,
+  useQuery,
+  useLazyQuery,
+} from '@apollo/client'
 
 import {
   DELETE_AVATAR,
@@ -77,6 +82,24 @@ const useGetData = () => {
     return dataQueryUser
   }
 
+  const getDataUserId = (input) => {
+    const {
+      data: dataUser,
+      loading: loadingUser,
+      error: errorUser,
+    } = useQuery(GET_USER, {
+      variables: {
+        getUserId: input,
+      },
+    })
+    const dataQueryUser = {
+      dataUser: dataUser?.getUser,
+      loadingUser,
+      errorUser,
+    }
+    return dataQueryUser
+  }
+
   const getUsersSearch = (searchUser) => {
     startSearchUsers({
       variables: { search: searchUser },
@@ -136,6 +159,7 @@ const useGetData = () => {
     userUpdate,
     passwordUpdate,
     getDataUser,
+    getDataUserId,
     getUsersSearch,
   }
 }

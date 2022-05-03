@@ -1,0 +1,37 @@
+@import '../../../../../scss/index.scss';
+
+.coment {
+  margin-top: 1rem;
+
+  &__image {
+    height: 32px;
+    width: 32px;
+
+    .ui.image.avatar {
+      min-height: 32px !important;
+    }
+
+    .ui.avatar.image {
+      height: 2em;
+      margin-right: 0.25em;
+      width: 100%;
+    }
+  }
+
+  .coment__text {
+    p {
+      display: inline;
+      line-height: 1.3rem;
+    }
+  }
+
+  span {
+    color: $font-dark;
+    font-weight: bold;
+    margin-right: 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
