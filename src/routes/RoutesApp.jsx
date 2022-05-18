@@ -10,6 +10,7 @@ const RoutesApp = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/:username' element={<User />} />
+        <Route path='/direct/inbox' element={<User />} />
         <Route path='*' element={<Error404 />} />
       </Routes>
     </BrowserRouter>
