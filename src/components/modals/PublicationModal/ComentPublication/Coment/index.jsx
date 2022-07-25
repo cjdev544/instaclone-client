@@ -10,7 +10,7 @@ const Coment = ({ coment }) => {
       <Grid>
         <Grid.Column width={3}>
           <div className='coment__image'>
-            <Link to={`/${coment.user.userName}`}>
+            <Link to={`/${coment.user.username}`}>
               <Image
                 src={coment.user.avatar ? coment.user.avatar : avatarNoFound}
                 alt='avatar'
@@ -21,7 +21,7 @@ const Coment = ({ coment }) => {
         </Grid.Column>
         <Grid.Column width={13} className='comment__text'>
           <p>
-            <Link to={`/${coment.user.userName}`}>
+            <Link to={`/${coment.user.username}`}>
               <span>{coment.user.username}</span>
             </Link>
             {coment.coment}

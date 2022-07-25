@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useApolloClient, useMutation, useLazyQuery } from '@apollo/client'
-import { toast } from 'react-toastify'
 
 import useAuth from './useAuth'
 import { ADD_COMENT, GET_COMENTS } from '../gql/coment'
@@ -31,11 +30,9 @@ const useComent = (publication) => {
           },
         },
       })
-      console.log(newComent)
       updateCacheComents(newComent)
     } catch (err) {
       console.log(err)
-      toast.error('Error en la comunicación')
     }
   }
 
@@ -58,7 +55,7 @@ const useComent = (publication) => {
         variables: { publicationId: addComent.publicationId },
       },
       (data) => ({
-        getComentsPublication: [...data.getComentsPublication, newComent],
+        getComentsPublication: [...data?.getComentsPublication, newComent],
       })
     )
   }

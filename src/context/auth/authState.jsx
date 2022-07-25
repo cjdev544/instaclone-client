@@ -18,7 +18,7 @@ const AuthState = ({ children }) => {
     setAuth(user)
   }
 
-  const register = async (values, setShowLogin) => {
+  const register = async (values, setShowLogin, setIsLoading) => {
     try {
       const newUser = values
       delete newUser.repitPassword
@@ -29,15 +29,17 @@ const AuthState = ({ children }) => {
         },
       })
 
+      setIsLoading(false)
       toast.success('Usuario registrado con exito')
       setShowLogin(true)
     } catch (err) {
+      setIsLoading(false)
       console.log(err)
       toast.error(err.message)
     }
   }
 
-  const login = async (values) => {
+  const login = async (values, setIsLoading) => {
     try {
       const { data } = await loginUser({
         variables: {
@@ -49,9 +51,11 @@ const AuthState = ({ children }) => {
 
       const user = jwt_decode(data.loginUser.token)
       setAuth(user)
+      setIsLoading(false)
     } catch (err) {
       toast.error(err.message)
       console.log(err)
+      setIsLoading(false)
     }
   }
 

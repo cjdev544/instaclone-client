@@ -9,6 +9,14 @@
   margin: 0 !important;
   padding: 0 !important;
 
+  a {
+    color: $font-dark;
+
+    &:hover {
+      color: $font-dark;
+    }
+  }
+
   &__image {
     height: 42px i !important;
 

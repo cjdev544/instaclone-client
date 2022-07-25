@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -7,6 +8,7 @@ import './LoginForm.scss'
 
 const LoginForm = () => {
   const { loginUser } = useAuth()
+  const [isLoading, setIsLoading] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -18,7 +20,8 @@ const LoginForm = () => {
       password: Yup.string().required(true),
     }),
     onSubmit: async (values) => {
-      loginUser(values)
+      setIsLoading(true)
+      loginUser(values, setIsLoading)
     },
   })
 
@@ -44,7 +47,7 @@ const LoginForm = () => {
           onChange={formik.handleChange}
           error={formik.errors.password}
         />
-        <Button type='submit' className='btn-submit'>
+        <Button type='submit' className='btn-submit' loading={isLoading}>
           Iniciar sesión
         </Button>
       </Form>

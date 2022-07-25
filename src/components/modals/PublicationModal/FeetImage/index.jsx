@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Grid, Image } from 'semantic-ui-react'
 
 import avatarNoFound from '../../../../assets/png/avatar.png'
@@ -9,12 +10,20 @@ const FeetImage = ({ dataUser, publication }) => {
       <Grid>
         <Grid.Column width={3}>
           <div className='feet-image__image'>
-            <Image src={dataUser.avatar || avatarNoFound} alt='avatar' avatar />
+            <Link to={`/${dataUser.username}`}>
+              <Image
+                src={dataUser.avatar || avatarNoFound}
+                alt='avatar'
+                avatar
+              />
+            </Link>
           </div>
         </Grid.Column>
         <Grid.Column width={13} className='comment__text'>
           <p>
-            <span>{dataUser.username}</span>
+            <Link to={`/${dataUser.username}`}>
+              <span>{dataUser.username}</span>
+            </Link>
             {publication.imageFeet}
           </p>
         </Grid.Column>

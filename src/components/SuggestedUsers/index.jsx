@@ -3,6 +3,7 @@ import { Button, Image } from 'semantic-ui-react'
 
 import useAuth from '../../hooks/useAuth'
 import useFollow from '../../hooks/useFollow'
+import useGetData from '../../hooks/useGetData'
 import SuggestedUser from './SuggestedUser'
 import avatarNoFound from '../../assets/png/avatar.png'
 import './SuggestedUsers.scss'
@@ -12,6 +13,9 @@ const SuggestedUsers = () => {
 
   const { getNoFolloweds } = useFollow()
   const usersNoFolloweds = getNoFolloweds()
+
+  const { getDataUser } = useGetData()
+  const { dataUser } = getDataUser(auth.username)
 
   const handleCloseSession = () => {
     logoutUser()
@@ -23,7 +27,7 @@ const SuggestedUsers = () => {
         <div className='suggested-users__auth-info'>
           <Link to={`/${auth.username}`}>
             <Image
-              src={auth.avatar ? auth.avatar : avatarNoFound}
+              src={dataUser?.avatar ? dataUser.avatar : avatarNoFound}
               alt={`avatar ${auth.username}`}
               avatar
             />

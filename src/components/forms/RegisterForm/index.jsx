@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -7,6 +8,8 @@ import './RegisterForm.scss'
 
 const RegisterForm = ({ setShowLogin }) => {
   const { registerUser } = useAuth()
+
+  const [isLoading, setIsLoading] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +31,8 @@ const RegisterForm = ({ setShowLogin }) => {
         .oneOf([Yup.ref('password')], true),
     }),
     onSubmit: async (values) => {
-      registerUser(values, setShowLogin)
+      setIsLoading(true)
+      registerUser(values, setShowLogin, setIsLoading)
     },
   })
 
@@ -78,7 +82,7 @@ const RegisterForm = ({ setShowLogin }) => {
           onChange={formik.handleChange}
           error={formik.errors.repitPassword}
         />
-        <Button type='submit' className='btn-submit'>
+        <Button type='submit' className='btn-submit' loading={isLoading}>
           Registrarce
         </Button>
       </Form>

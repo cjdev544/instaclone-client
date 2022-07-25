@@ -16,9 +16,10 @@ const useAuth = () => {
     }
   }, [])
 
-  const registerUser = (values, setShowLogin) => register(values, setShowLogin)
+  const registerUser = (values, setShowLogin, setIsLoading) =>
+    register(values, setShowLogin, setIsLoading)
 
-  const loginUser = (values) => login(values)
+  const loginUser = (values, setIsLoading) => login(values, setIsLoading)
 
   return {
     auth,
