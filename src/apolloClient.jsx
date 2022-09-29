@@ -18,7 +18,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: authLink.concat(
     createUploadLink({
-      uri: `${import.meta.env.VITE_BACKEND_URL}/graphql`,
+      // uri: `${import.meta.env.VITE_BACKEND_URL}/graphql`,
+      uri: `https://instaclone-server-production.up.railway.app/graphql`,
     })
   ),
   connectToDevTools: true,
