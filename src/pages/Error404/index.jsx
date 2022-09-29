@@ -5,7 +5,7 @@ const Error404 = () => {
   return (
     <BasicLayout>
       <div className='error404'>
-        <h1>Error404</h1>
+        <h1>Error404: Página no encontrada</h1>
       </div>
     </BasicLayout>
   )
